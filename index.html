@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Registration Form</title>
+<style>
+body {
+        font-family: Arial, sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .registration-container {
+        width: 300px;
+        padding: 20px;
+        background-color: black;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        text-align: center;
+        color: #333;
+    }
+    label {
+        display: block;
+        margin-top: 10px;
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="email"],
+    input[type="tel"] {
+        padding: 10px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    input[type="checkbox"] {
+        margin-right: 5px;
+    }
+    .show-password {
+        margin-top: 10px;
+    }
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin-top: 10px;
+        background-color: red;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .error-message {
+    color: red;
+    font-size: 12px;
+    }
+    </style>
+</head>
+<body style="background:url('./kk.jpeg')">
+<div class="registration-container">
+<center>
+<h1 style="color:red">Registration</h1>
+<form id="registrationForm" action="/storage/emulated/0/1/index.html" method="post" onsubmit="return validateForm()">          
+<p style="color:white"><label for="username">User Name:</label></p>
+<input type="text" id="username" name="username" required maxlength="20">
+<p style="color:white"><label for="password">Password:</label></p>
+<input type="password" id="password" name="password" required minlength="6">
+<p style="color:white"><label for="repassword">Re-enter password:</label></p>
+<input type="password" id="repassword" name="repassword" required minlength="6">
+<br>
+<span class="error-message" id="passwordMatchError"></span>
+<p style="color:white"><label for="email">Email:</label></p>
+<input type="email" id="email" name="email" required>
+<p style="color:white"><label for="mobile">Mobile Number:</label></p>
+<input type="tel" id="mobile" name="mobile" pattern="[0-9]{11}" required>
+<br>
+<br>
+<input type="submit" value="Register Now"></form>
+</form>
+</div>
+<script>
+        function validateForm() {
+            var password = document.getElementById("password").value;
+            var repassword = document.getElementById("repassword").value;
+            var passwordMatchError = document.getElementById("passwordMatchError");
+
+            if (password !== repassword) {
+                passwordMatchError.innerText = "Passwords must match.";
+                return false;
+            } else {
+                passwordMatchError.innerText = "";
+                return true;
+            }
+        }
+    </script>
+</center>
+</body>
+</html>
